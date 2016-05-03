@@ -1,5 +1,7 @@
 class PreachersController < ApplicationController
 
+  impressionist :actions=>[:show,:index]
+
 		before_action :authenticate_preacher!, :except => [:index, :show]
 		before_action :set_preacher, only: [:show, :edit, :update]
   
@@ -9,8 +11,11 @@ class PreachersController < ApplicationController
   end
 
   def show
+    impressionist(@preacher)
+   
+
      @preacher = Preacher.friendly.find(params[:id])
-    @songs = @preacher.songs
+    @preacher_songs = @preacher.songs
     if request.path != preacher_path(@preacher)
     redirect_to @preacher, status: :moved_permanently
      else

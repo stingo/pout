@@ -1,20 +1,392 @@
-<h1>Preachers#show</h1>
-<p>Find me in app/views/preachers/show.html.erb</p>
+
+<!DOCTYPE html>
+<html class="no-js">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+  <meta name="viewport" content="initial-scale=1,minimum-scale=1,maximum-scale=1,width=device-width,height=device-height,target-densitydpi=device-dpi,user-scalable=yes">
+
+  <title>Profile Page</title>
 
 
+
+
+    <!-- ============================================
+    MAIN CONTENT SECTION
+    =============================================== -->
+
+
+
+
+    <div class="container">
+    <div class="navfix centered">
+
+<%= render '/layouts/nav3' %> 
+</div>
+
+
+ 
+
+    <br />
+ <br />
+ <br />
+      <div class="content">
+        <div class="content-hero content-hero-lg">
+
+         <% if @preacher.profilecover? %>
+          
+          <%= image_tag(@preacher.profilecover.url(:large), :class => "content-hero-embed") %>
+
+          <% else %>
+          <%= image_tag("fallback/noimage.jpg", :class => "img-responsive content-hero-embed bg-grd-blue") %>
+          <% end %>
+
+          <div class=""></div>
+          <div class="content-hero-body">
+          </div>
+          <div class="content-hero-bar ">
+            <div class="row">
+              <div class="pull-right">
+                <!--a data-toggle="modal" href="#" data-scripts="_includes/setups.js" data-target="#templateSetup" title="Template Setups" aria-label="template setups" class="btn btn-sm mr-2x btn-default"--><span>
                 <% if preacher_signed_in? %>
                 <%= link_to edit_preacher_path(current_preacher) do %><span class="btn btn-sm mr-2x btn-default"> <i class="fa fa-pencil fa-2x" style="color:#337ab7"></i> <% end %></span>
 
                 <% else %> <% end %>
 
+                </span></a>
+              </div>
+              <div class="col-lg-6">
+                <div class="float-bar clearfix">
+                  <div class="float-bar-brand">
 
-                <br />
 
-                <% if @preacher.profilephoto? %>
+                  <% if @preacher.profilephoto? %>
         <%=link_to (image_tag @preacher.profilephoto.url(:small), :class => "kit-avatar kit-avatar-128 no-padding border-white pull-left"), @preacher %>
         <% else %> 
         <%= image_tag("fallback/unknown-profile.jpg", :class => "kit-avatar kit-avatar-96 border-white centered") %>
 
 
        <% end %> 
+                    
 
+
+                      
+
+
+
+                   
+                  </div>
+                  <div class="col-sm-8">
+                    <div class="visible-xs">
+                      <h2 class="display-name media-heading text-teal"><strong><%= @preacher.firstname if @preacher.firstname %></span><span><%= " " + @preacher.lastname if @preacher.lastname %></span> </strong></h2>
+
+                      <p class="text-muted mb-4x">
+                      <span class="mr-2x"><i class="fa fa-map-marker fa-fw"></i> <%= @preacher.country if @preacher.country %>, <%= @preacher.city if @preacher.city %></span>
+                      <span class="mr-2x"><i class="fa fa-calendar fa-fw"></i> Joined <%= @preacher.created_at.strftime('%B %Y') %></span>
+                      </p>
+
+                      
+                    </div>
+                    <div class="hidden-xs">
+                      <h1 class="media-heading"><span><strong><%= @preacher.firstname if @preacher.firstname %></span><span><%= " " + @preacher.lastname if @preacher.lastname %></span> </strong></h1>
+                      
+                      <p class="mb-4x">
+                      <span><i class="fa fa-map-marker fa-fw"></i> <%= @preacher.country if @preacher.country %>, <%= @preacher.city if @preacher.city %></span>
+                      <span><i class="fa fa-calendar fa-fw"></i> Joined <%= @preacher.created_at.strftime('%B %Y') %></span>
+                      </p>
+
+                    </div>
+                    <div class="mt-4x">
+
+                    <p  style="background:#ffffff; padding: 5px; opacity: 0.7" > 
+
+                    <strong><i class="fa fa-globe fa-2x" style="color:#337ab7"></i>&nbsp Intro</strong> <br />
+
+                    <!--Description-->
+                   <%= best_in_place_if @preacher == current_preacher, @preacher, :bio, :as => :textarea, :ok_button => 'Save', :cancel_button => 'Cancel' %>
+
+
+                       <!--Description-->
+
+                       
+
+
+
+                       </p>     
+                
+                      
+
+                     
+                      <!--p>
+                        <a href="#" class="btn btn-danger btn-sm btn-circle" aria-label="google plus"><i class="fa fa-lg fa-google-plus"></i></a>
+                        <a href="#" class="btn btn-primary btn-sm btn-circle ml-1x" aria-label="instagram"><i class="fa fa-lg fa-instagram"></i></a>
+                        <a href="#" class="btn btn-info btn-sm btn-circle ml-1x" aria-label="twitter"><i class="fa fa-lg fa-twitter"></i></a>
+                        <a href="#" class="btn btn-success btn-sm btn-circle ml-1x" aria-label="facebook"><i class="fa fa-lg fa-facebook"></i></a>
+                      </p-->
+                    </div>
+                  </div><!-- /.media-body -->
+                </div><!-- /.float-bar -->
+              </div><!-- /.cols -->
+
+<!--song counts-->
+              <div class="col-lg-6">
+                
+                <div class="row">
+                  <div class="col-xs-3">
+
+                 
+
+                  <!--div class="btn btn-default mb-1x mr-1x zindez999">
+                  <%# "Post".pluralize(@user.songs.count) %><br / >
+                    <span class="headline"><strong><%# @user.songs.count %></strong></span>
+                    
+
+                    </div-->
+
+                    
+
+
+
+
+       <%# @user.email %>
+
+       <%# link_to 'Edit Profile', edit_user_path(current_user) %>
+
+
+                  </div>
+                  <div class="btn btn-default mb-1x mr-1x zindez999">
+                  <%= "Post".pluralize(@preacher.songs.count) %><br / >
+                    <span class="headline"><strong><%= @preacher.songs.count %></strong></span>
+                    
+
+                    </div>
+
+
+                  <div class="btn btn-default mb-1x mr-1x zindez999">
+                  <%= "View".pluralize(@preacher.songs.count) %><br / >
+                    <span class="headline"><strong><%= @preacher.impressionist_count(:filter=>:session_hash) %></strong></span>
+                    
+
+                    </div>
+
+
+                  <!--div class="btn btn-default mb-1x mr-1x zindez999">
+                  <%# "Post".pluralize(@user.songs.count) %><br / >
+                    <span class="headline"><strong><%# @user.songs.count %></strong></span>
+                    
+
+                    </div-->
+               
+
+                </div>
+              </div><!-- /.cols -->
+            </div><!-- /.row -->
+          </div><!-- /.content-hero-bar -->
+        </div><!-- /.content-hero -->
+
+
+
+
+
+        <div class="content-body">
+
+          <!-- ============================================
+          LATEST POSTS LIST
+          =============================================== -->
+
+
+
+         
+
+
+
+
+
+
+
+
+
+         
+
+
+
+
+         
+
+
+          <!-- ============================================
+          LATEST POSTS LIST
+          =============================================== -->
+          
+
+          <!-- ============================================
+          FOLLOWERS LIST
+          =============================================== -->
+          <div class="row mb-4x mt-4x">
+            <div class="col-xs-12 bg-white">
+              <div class="p-2x">
+                <h1>You Have 1,248 Followers</h1>
+               
+              </div>
+            </div><!-- /.cols -->
+          </div><!-- /.row -->
+
+          
+
+
+          <!-- ============================================
+          Lists
+          =============================================== -->
+
+         
+          <% @preacher_songs.each_slice(6) do |song| %> 
+          <div class="row">
+          <% @preacher_songs.each do |song| %>
+          <div class="col-lg-4 col-md-6 col-sm-6">
+          <div class="panel">
+
+
+
+          
+
+
+          <% if song.soundcover? %>
+        <%=link_to (image_tag song.soundcover.url(:thumb), :class => "img-responsive centered box-hover"), song_path(song) %>
+
+
+        <% else %> 
+        <%= image_tag("fallback/noimage.jpg", :class => "img-responsive centered   box-hover") %>
+
+        <% end %>
+
+
+        <div class="embed-extend-item">
+                  <a href="#" class="kit-avatar kit-avatar-96 border-white pull-left">
+                    <img src="images/dummy/uifaces11.jpg" alt="avatar">
+                  </a>
+                  <h3 class="subhead" style="color:#337ab7"><%= link_to (song.title.split(" ").map(&:capitalize).join(" ")),
+
+
+                   song_path(song) %> <small><div class="pull-left"><i class="fa fa-tags"> TAGGED:</i>&nbsp<%#raw tag_links(song.all_tags) %><div></small></h3>
+                </div><!-- /.kit-cover-headline -->
+
+                <div class="panel-body">
+                  <div class="row">
+
+                  <div class="col-xs-3 bordered-right">
+
+                    
+                      <p class="text-center"><a href:"#">
+                        
+                        <i class="fa fa-clock-o" style="color:#337ab7"></i>
+                      </a><br><small><%= song.created_at.strftime('%d %B %Y') %></small></p>
+                    </div><!-- /.cols -->
+
+
+                    <div class="col-xs-3 bordered-right">
+                       <h5 class="text-center"> <a href:"#"> <%= link_to song do %><i class="fa fa-eye" style="color:#337ab7"></i><% end %></a>
+                       <br><strong><%= song.impressionist_count(:filter=>:session_hash) %></strong></h5>
+                    </div><!-- /.cols -->
+
+                    <div class="col-xs-3 bordered-right">
+                      <h5 class="text-center"> <a href:"#"> <%= link_to song do %><i class="fa fa-comment" style="color:#337ab7"></i><% end %></a>
+                    <br><strong><%= song.comments.count %></strong></h5>
+                    </div><!-- /.cols -->
+
+                    <!--div class="col-xs-3">
+                    <h5 class="text-center">
+                      <p id#"song_<%= song.id %>_likes"><%# render partial: "likes", locals: {song: song} %></p>
+                      </h5>
+                    </div>- /.cols -->
+                  
+
+                  </div><!-- /.row -->
+                  
+                  </div><!-- /.panel-body-->
+
+
+
+           </div><!-- col -->
+           </div><!-- panel -->
+          <% end %>
+          </div>
+          <% end %>
+
+
+
+
+          <p class="help-block text-right pb-4x mb-4x">
+            <a href="#" class="btn btn-icon btn-default"><span class="text-muted"><%= link_to 'View All Songs', songs_path %> <i class="fa fa-angle-double-right"></i></span></a>
+          </p>
+
+        </div><!-- /.content-body -->
+
+
+        <!-- Template Setups -->
+        <div class="modal fade" id="templateSetup">
+          <div class="modal-dialog">
+            <!-- modal-content -->
+            <div class="modal-content"></div>
+          </div><!-- /.modal-dialog -->
+        </div><!-- /.templateSetup -->
+
+
+      </div><!-- /.content -->
+
+
+    </div><!-- /container -->
+
+
+
+    <!-- ============================================
+    FOOTER SECTION
+    =============================================== -->
+    <footer class="footer-wrapper" role="contentinfo">
+      <div class="footer">
+        <div class="pull-right text-muted"><small>Currently v1.2</small></div>
+        <div>Wrapkit Template  &copy; 2015</div>
+      </div>
+    </footer><!-- /.FOOTER -->
+
+  </main><!-- /#MAIN -->
+
+
+  <!-- VENDORS : jQuery & Bootstrap -->
+  <script src="scripts/vendor.js"></script>
+  <!-- END VENDORS -->
+
+  <!-- DEPENDENCIES : Required plugins -->
+  <script src="scripts/dependencies.js"></script>
+  <!-- END DEPENDENCIES -->
+
+  <!-- WRAPKIT -->
+  <script src="scripts/wrapkit.js"></script>
+  <!-- END WRAPKIT -->
+
+  <!-- WRAPKIT SETUPS -->
+  <script src="scripts/wrapkit-setup.js"></script>
+  <!-- end WRAPKIT SETUPS -->
+
+  <!-- PLUGIN SETUPS: vendors & dependencies setups -->
+  <script src="scripts/plugin-setups.js"></script>
+  <!-- END PLUGIN SETUPS -->
+
+  <!-- CHARTS -->
+  <script src="scripts/chartjs.js"></script>
+  <!-- END CHARTS -->
+
+  <!-- DUMMY: Use for demo -->
+  <script src="scripts/demo/page-profile-demo.js"></script>
+
+
+  <!-- Google Analytics: change UA-48454066-1 to be your site's ID. -->
+  <script>
+    (function(b,o,i,l,e,r){b.GoogleAnalyticsObject=l;b[l]||(b[l]=
+      function(){(b[l].q=b[l].q||[]).push(arguments)});b[l].l=+new Date;
+    e=o.createElement(i);r=o.getElementsByTagName(i)[0];
+    e.src='//www.google-analytics.com/analytics.js';
+    r.parentNode.insertBefore(e,r)}(window,document,'script','ga'));
+    ga('create','UA-48454066-1');ga('send','pageview');
+  </script>
+</body>
+</html>

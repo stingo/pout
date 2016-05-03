@@ -1,8 +1,11 @@
 class Preacher < ActiveRecord::Base
 
+  is_impressionable
+
 	validates_presence_of :displayname
 
 	mount_uploader :profilephoto, ProfilephotoUploader
+  mount_uploader :profilecover, ProfilecoverUploader
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable and :omniauthable
   devise :database_authenticatable, :registerable,
