@@ -1,0 +1,39 @@
+<%= form_for(@song) do |f| %>
+  <% if @song.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@song.errors.count, "error") %> prohibited this audio from being saved:</h2>
+
+      <ul>
+      <% @song.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <%= f.text_field :title, autofocus: true, :placeholder => 'Song title', class: "form-control" %>
+                <p></p>
+
+                <div class="field">
+    <%= f.label :artist %><br>
+    <%= f.text_field :artist %>
+  </div>
+  <p></p>
+                <%= f.text_area :desc, autofocus: true, :placeholder => 'Description', class: "form-control" %>
+                <div class="field">
+                <div class="field">
+                <%= f.label :add_song %><br>
+                <%= f.file_field :sound %>
+              </div>
+              <div class="field">
+                <%= f.label :add_cover_image %><br>
+                <%= f.file_field :soundcover %>
+              </div>
+ 
+
+  
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+
+<% end %>

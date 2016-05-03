@@ -1,0 +1,218 @@
+/*
+ * This is a manifest file that'll be compiled into application.css, which will include all the files
+ * listed below.
+ *
+ * Any CSS and SCSS file within this directory, lib/assets/stylesheets, vendor/assets/stylesheets,
+ * or any plugin's vendor/assets/stylesheets directory can be referenced here using a relative path.
+ *
+ * You're free to add application-wide styles to this file and they'll appear at the bottom of the
+ * compiled file so the styles you add here take precedence over styles defined in any styles
+ * defined in the other CSS/SCSS files in this directory. It is generally better to create a new
+ * file per style scope.
+ *
+ */
+ 
+ @import "font-awesome";
+ @import "bootstrap-sprockets";
+ @import "bootstrap";
+ /*@import "welcome/animate.min";
+ @import "welcome/bootstrap.min";
+ @import "welcome/nivo-lightbox";
+ @import "welcome/owl.carousel";
+ @import "welcome/owl.theme";
+ @import "welcome/responsive";
+ @import "welcome/welcomestyles";
+ @import "welcome/icons";
+ @import "welcome/colors/red";
+ @import "welcome/colors/green";
+ @import "welcome/colors/greentwo";
+ @import "welcome/colors/orange";
+ @import "welcome/colors/purple";
+ @import "welcome/colors/blue";
+ @import "welcome/typography/style1";
+ @import "welcome/typography/style2";
+ @import "welcome/typography/style3";
+ @import "welcome/typography/style4";
+ @import "welcome/ndefault";
+ */
+ @import "preachout_vid_bg/default";
+ @import "preachout_vid_bg/welcomestyles";
+ @import "preachout_vid_bg/animate.min";
+ @import "preachout_vid_bg/bootstrap.min";
+ @import "preachout_vid_bg/nivo-lightbox";
+ @import "preachout_vid_bg/owl.theme";
+ @import "preachout_vid_bg/colors/blue";
+ @import "preachout_vid_bg/typography/style1";
+ @import "preachout_vid_bg/typography/style2";
+ @import "preachout_vid_bg/typography/style3";
+ @import "preachout_vid_bg/typography/style4";
+ /*wrapkit*/
+ /*@import "wrap/gootstrap";*/
+ @import "wrap/search";
+ @import "wrap/soulmate";
+ @import "wrap/demo";
+ @import "wrap/dependencies";
+ @import "wrap/components";
+ @import "wrap/wkit";
+ @import "wrap/profilegplay";
+ @import "wrap/chosen";
+ @import "wrap/side";
+ @import "wrap/pages";
+ /*@import "wrap/epiceditor/preview/bartik";
+ @import "wrap/epiceditor/preview/github";
+ @import "wrap/epiceditor/preview/preview-dark";
+ @import "wrap/epiceditor/editor/epic-dark";
+ @import "wrap/epiceditor/editor/epic-light";
+ @import "wrap/epiceditor/base/epiceditor";*/
+ 
+
+body {
+    background-color: rgba(212, 216, 212, 0.25);
+}
+
+.bgblack {background-color: #000000;
+
+}
+
+.zindez999 {
+            z-index: 999;
+}
+
+.zindex1 {
+            z-index: 200;
+}
+
+.modal-backdrop {
+  position: fixed;
+  top: 200;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  background-color: #16181B;
+  z-index: 200;
+}
+
+.modal-backdrop.fade {
+  opacity: 0;
+  filter: alpha(opacity=0)
+  
+}
+
+.modal-backdrop.in {
+  opacity: .5;
+  filter: alpha(opacity=50)
+
+}
+
+.modal-content {
+    margin-top: 100px;
+    padding: 10px 30px 30px;
+    margin-top: 100px;
+}
+
+.modal-footer {
+    margin-top: 35px;
+    padding: 15px;
+    text-align: right;
+}
+
+
+.navbar-fixed-top{top:0;border-width:0 0 1px;
+	-webkit-box-shadow: 0 4px 1px 4px #333;
+     -moz-box-shadow: 0 1px 2px 1px #333;
+     box-shadow: 0 1px 2px 1px #333;
+     background-color: #ffffff;
+ }
+
+
+.rounded-img {
+    border-radius: 5%;
+}
+.navbar {
+    background-color: white;
+}
+.navbar-brand {
+    position: absolute;
+    left: 50%;
+    margin-right: 25px !important;
+    display: block;
+}
+.post-panel {
+    margin-top: -21px;
+}
+.post-title {
+    text-align: left;
+    margin-left: 15px;
+}
+.post-content {
+    text-align: left;
+    margin-left: 15px;
+}
+.post-links {
+    text-align: left;
+}
+.post-owner {
+    color: black;
+    font-weight: bold;
+}
+.post-creation {
+    opacity: 0.7;
+}
+.g-links {
+    opacity: 0.4;
+    font-size: 120%;
+    margin-right: 75px;
+}
+.post-form-panel {
+    margin-bottom: -21px;
+}
+.panel-image img.panel-image-preview {
+    width: 100%;
+    border-radius: 4px 4px 0px 0px;
+}
+.panel-heading ~ .panel-image img.panel-image-preview {
+    border-radius: 0px;
+}
+.panel-image ~ .panel-body, .panel-image.hide-panel-body ~ .panel-body {
+    overflow: hidden;
+}
+.panel-image ~ .panel-footer a {
+    padding: 0px 10px;
+    font-size: 1.3em;
+    color: rgb(100, 100, 100);
+}
+.panel-image.hide-panel-body ~ .panel-body {
+    height: 0px;
+    padding: 0px;
+}
+.panel-footer {
+    background-color: white;
+}
+.profile-banner {
+    width: 100%;
+    height: 500px;
+    margin-top: -21px;
+}
+
+/* Video Embed */
+
+
+.embed-container {
+  position: relative;
+  padding-bottom: 56.25%;
+  padding-top: 30px;
+  height: 0;
+  overflow: hidden;
+  width: 95%;
+  height: auto;
+  margin-bottom: 0px;
+} 
+
+.embed-container iframe,
+.embed-container object,
+.embed-container embed {
+  position: absolute;
+  top: 0; left: 0;
+  width: 95%;
+  height: 87%;
+}

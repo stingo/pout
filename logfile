@@ -1,0 +1,23 @@
+LOG:  database system was shut down at 2016-04-27 21:47:59 PDT
+LOG:  MultiXact member wraparound protections are now enabled
+LOG:  database system is ready to accept connections
+LOG:  autovacuum launcher started
+ERROR:  relation "songs" already exists
+STATEMENT:  CREATE TABLE "songs" ("id" serial primary key, "title" character varying, "desc" text, "preacher_id" integer, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL) 
+ERROR:  column "artist" of relation "songs" already exists
+STATEMENT:  ALTER TABLE "songs" ADD "artist" character varying
+ERROR:  cached plan must not change result type
+STATEMENT:  SELECT  "songs".* FROM "songs" WHERE "songs"."id" = $1 LIMIT 1
+ERROR:  relation "friendly_id_slugs" already exists
+STATEMENT:  CREATE TABLE "friendly_id_slugs" ("id" serial primary key, "slug" character varying NOT NULL, "sluggable_id" integer NOT NULL, "sluggable_type" character varying(50), "scope" character varying, "created_at" timestamp) 
+ERROR:  relation "friendly_id_slugs" already exists
+STATEMENT:  CREATE TABLE "friendly_id_slugs" ("id" serial primary key, "slug" character varying NOT NULL, "sluggable_id" integer NOT NULL, "sluggable_type" character varying(50), "scope" character varying, "created_at" timestamp) 
+ERROR:  relation "impressions" does not exist at character 323
+STATEMENT:                SELECT a.attname, format_type(a.atttypid, a.atttypmod),
+	                     pg_get_expr(d.adbin, d.adrelid), a.attnotnull, a.atttypid, a.atttypmod
+	                FROM pg_attribute a LEFT JOIN pg_attrdef d
+	                  ON a.attrelid = d.adrelid AND a.attnum = d.adnum
+	               WHERE a.attrelid = '"impressions"'::regclass
+	                 AND a.attnum > 0 AND NOT a.attisdropped
+	               ORDER BY a.attnum
+	

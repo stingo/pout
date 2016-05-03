@@ -1,0 +1,28 @@
+
+ <div class="alert alert-success fade in">
+                  <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+                  <%= notice %>.
+                </div>
+
+
+
+
+
+
+<p>
+  <strong>Song:</strong>
+  <%= @comment.song_id %>
+</p>
+
+<p>
+  <strong>Body:</strong>
+  <%= @comment.body %>
+</p>
+
+<p>
+  <strong>Preacher:</strong>
+  <%= @comment.preacher %>
+</p>
+
+<%= link_to 'Edit', edit_comment_path(@comment) %> |
+<%= link_to 'Back', comments_path %>

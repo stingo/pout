@@ -1,0 +1,7 @@
+<% if preacher_signed_in? && current_preacher.likes?(song) %>
+  <%= link_to "", song_like_path(song), method: :delete, remote: true, :class=>"fa fa-heart fa-2x" %>
+<% else %>
+<large><%= link_to "", song_like_path(song), method: :post, remote: true, :class=>"fa fa-heart-o fa-2x" %></large>
+<% end %>
+<br>
+<strong><%= song.likes.count %></strong>

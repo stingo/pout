@@ -1,0 +1,11 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  videourl: 
+  description: MyText
+  preacher_id: 
+
+two:
+  videourl: 
+  description: MyText
+  preacher_id: 

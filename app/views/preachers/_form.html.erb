@@ -1,0 +1,49 @@
+<%= form_for(@preacher) do |f| %>
+  
+  
+
+  
+ <div class="field">
+
+ <%= f.label :display_name %><br>
+    <%= f.text_field :displayname %><br>
+    
+    <%= f.label :add_country %><br>
+    <%= f.text_field :country %>
+    <%= f.label :add_city %><br>
+    <%= f.text_field :city %>
+
+
+    <%= country_select("preacher", "country") %>
+
+     <div class="finline">
+
+                                <%= f.text_field :firstname, :autofocus => true, :placeholder => 'First Name', :class => "form-control input-box " %>
+
+                            </div>
+
+                           
+
+                            <div class="finline">
+
+                                <%= f.text_field :lastname, :autofocus => true, :placeholder => 'Last Name', :class => "form-control input-box " %>
+
+                            </div>
+
+    <%= f.label :add_profile_photo %><br>
+    <%= f.file_field :profilephoto %><br>
+
+    <%= f.label :add_profile_cover %><br>
+    <%= f.file_field :profilecover %><br>
+
+  </div>
+  <div class="field ">
+     <%= f.label :intro %><br>
+     <%= f.text_area :bio, :autofocus => true, :placeholder => 'Tell us bout yourself... in twenty words maximum', :class => "form-control" %>
+  </div>
+  <br>
+  </div>
+  
+  
+  <%= f.submit "Save changes", class: "btn btn-primary" %>
+<% end %>

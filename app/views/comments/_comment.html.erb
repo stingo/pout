@@ -1,0 +1,153 @@
+<!-- ============================================
+          LATEST POSTS LIST
+          =============================================== -->
+
+
+
+         <!-- TOP BLOCK -->
+          <!--div class="row">
+            <div class="col-md-8">
+              <div class="panel" data-fill-color="true" style="height:268px">
+                <div class="panel-heading">
+                  <div class="panel-control pull-right">
+                    <a href="#" class="btn btn-icon">View all</a>
+                  </div>
+                  <h3 class="panel-title">Top Sellers</h3>
+                </div>
+                
+
+                <div class="list-group">
+                  <div class="list-group-item">
+                    <div class="media">
+                      <div class="media-left">
+                        <div class="kit-avatar kit-avatar-28 no-border mr-1x">
+                          <img class="media-object" src="images/dummy/uifaces5.jpg">
+                        </div>
+                      </div>
+                      <div class="media-body media-middle">
+                        <div class="dropdown pull-right">
+                          <button class="btn btn-xs btn-default btn-icon dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true"><i class="icon-options-vertical text-muted"></i></button>
+                          <ul class="dropdown-menu dropdown-menu-right">
+                            <li><a href="#">View profile</a></li>
+                            <li><a href="#">View projects</a></li>
+                            <li><a href="#">Send a message</a></li>
+                          </ul>
+                        </div-->
+
+                         <!--img src="images/dummy/people2.jpg" alt="avatar"-->
+
+ 
+          
+
+
+
+
+
+ <div class="panel mb-1x">
+            <div class="panel-body">
+              <div class="row">
+
+              <div class="col-lg-1 col-md-1 col-sm-1 col-xs-6 hidden-xs">
+               
+
+                <div class="pt-1x"> 
+
+                <!--a href="#" class="kit-avatar kit-avatar-28 no-border mr-1x pull-left kit-avatar-fw">
+                  <%# image_tag("fallback/unknown-profile.jpg", :class => "kit-avatar kit-avatar-28 no-border mr-1x pull-left kit-avatar-fw") %>
+                 </a-->
+
+
+
+
+            <% if comment.preacher.profilephoto? %>
+            <%=link_to (image_tag comment.preacher.profilephoto.url(:small), :class => "kit-avatar kit-avatar-28 no-border mr-1x pull-left kit-avatar-fw comment-img"), preacher_path(comment.preacher_id) %>
+            <% else %> 
+            <%= image_tag("fallback/unknown-profile.jpg", :class => "kit-avatar kit-avatar-28 no-border mr-1x pull-left kit-avatar-fw comment-img") %></a></li>
+           <% end %> 
+           
+
+            </div>
+
+
+           </div><!-- /.cols -->
+                
+
+                <div class="col-lg-8 col-md-8 col-sm-8 col-xs-9">
+
+               
+
+
+
+                <!-- inner row for name-->
+
+                <div class="row">
+
+                <div class="col-lg-8 col-md-8 col-sm-8 col-xs-9">
+
+
+                <small><%= comment.preacher.firstname + " " + "says" if comment.preacher.firstname %></small>
+                </div>
+
+                </div>
+
+                <!-- End inner row for name-->
+
+
+                  
+                 
+                  
+                <div class="pt-1x"><%= best_in_place_if comment.preacher == current_preacher, comment, :body,  :as => :textarea, :ok_button => 'Save ',  :cancel_button => ' Cancel' %></div>
+                
+                </div><!-- /.cols -->
+
+               
+                <div class="col-lg-2 col-md-2 col-sm-2 col-xs-3 hidden-xs">
+                  <div class="pt-1x"><%= time_ago_in_words(comment.created_at) %> ago</div>
+                </div><!-- /.cols -->
+
+              
+                <div class="col-lg-1 col-md-1 col-sm-1 col-xs-3 text-right pull-right">
+
+                <div class="dropdown pull-right">
+                          <button class="btn btn-xs btn-default btn-icon dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true"><i class="fa fa-ellipsis-v"></i></button>
+                          <ul class="dropdown-menu dropdown-menu-right">
+                           
+
+                            <li>
+                            
+                            <% if comment.preacher == current_preacher -%>
+                            <h5><%= link_to 'Delete comment', comment, method: :delete, data: { confirm: 'Are you sure?' }, class: "label label-danger margin-left10" %></h5>
+                            
+                            
+                           
+                              </li>
+                              <% end %>
+
+
+                            <li><a href="#">Report spam or abuse</a></li>
+                            <li><a href="#">Send a message</a></li>
+                          </ul>
+                  </div>
+                  <!--a href="#" class="btn btn-primary">Edit</a-->
+                </div><!-- /.cols -->
+
+              
+
+              </div><!-- /.row -->
+            </div><!-- /.panel-body -->
+          </div><!-- /.panel -->
+
+
+
+          <!-- End -->
+
+
+  
+
+
+
+
+
+
+  
+

@@ -1,0 +1,11 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  song_id: 1
+  body: MyText
+  preacher_id: 
+
+two:
+  song_id: 1
+  body: MyText
+  preacher_id: 

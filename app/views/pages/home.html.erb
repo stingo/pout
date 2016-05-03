@@ -1,0 +1,71 @@
+<div class="container">
+
+<div class="navfix centered">
+
+<%= render '/layouts/nav3' %> 
+</div>
+
+<div class="row">
+    <div class="col-xs-3">
+      
+        <div class="panel panel-default">
+          <div class="panel-image hide-panel-body">  
+            <img src="/banner.jpg" class="panel-image-preview">
+          </div>
+          <div class="panel-footer">
+            <div class="row">
+                <div class="col-sm-2"><img src="/avatar.png" height="50px" width="50px" class="rounded-img home-avatar"></div>
+                <div class="col-sm-10"><h4 style="text-align: center;"><%= current_preacher.displayname %></h4></div>
+                <div class="col-sm-12" style="margin-top: 10px;">
+                  <div class="col-sm-6" style="font-size: 80%; opacity: 0.7;">POSTS<br>
+                    <h6 style="color: #0084B4; font-size: 200%;"><%# current_user.posts.count %></h6>
+                  </div>
+                  <div class="col-sm-6" style="font-size: 80%; opacity: 0.7;">FOLLOWERS<br>
+                    <h6 style="color: #0084B4; font-size: 200%;"><%# current_user.followers.count %></h6>
+                  </div>
+                </div>
+            </div>
+
+          </div>
+        </div>
+        
+        <div class="panel panel-default">
+          <div class="panel-body">
+             <h5 style="color: grey; font-size: 125%;">Trends</h5>
+              <a href="">#Trend #1</a><br>
+                <span style="color: grey;">31k Posts</span><br><br>
+              <a href="">#Trend #2</a><br>
+                <span style="color: grey;">25k Posts</span><br><br>
+              <a href="">#Trend #3</a><br>
+                <span style="color: grey;">16k Posts</span><br><br>
+          </div>
+        </div>
+    </div>
+    <div class="col-xs-6">
+        <%= render '/components/preach_form' %><br><br>
+        <%= render '/components/video_form' %><br><br>
+        
+     
+
+
+
+
+
+        
+        <div class="panel panel-default post-panel">
+          <div class="panel-body row">
+            <div class="col-sm-12">
+            <center><img src="/icon.png" height="25px" width="25px"></img>
+              <a href="#top"><p class="opacity: .7;">Back to top <span class="glyphicon glyphicon-arrow-up" aria-hidden="true"></span></p></a></center>
+            </div>
+          </div>
+        </div>
+    </div>
+    <div class="col-xs-3">
+        <div class="panel panel-default">
+          <div class="panel-body">
+            <p style="opacity: 0.5; font-size: 90%;">© 2016 Flutter  About  Help  Terms  Privacy  Cookies  Ads Info  Brand  Blog  Status  Apps  Jobs  Advertise  Businesses  Media  Developers</p>
+          </div>
+        </div>
+    </div>
+</div>

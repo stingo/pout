@@ -1,0 +1,40 @@
+<h3 class="comments_title">
+  
+
+  <i class="fa fa-comment fa" style="color:#337ab7"></i><%= @song.comments.size %> <%= "Comment".pluralize(@song.comments.count) %> 
+
+  
+
+  <div class="progress progress-xs">
+                        <div class="progress-bar progress-bar-danger" style="width:28%"></div>
+                      </div>
+
+                    
+</h3>
+
+
+
+
+<%= form_for [@song, Comment.new]  do |f| %>
+  
+  <div class="field ">
+     <%= f.text_area :body, :autofocus => true, :placeholder => 'write comment...', :class => "form-control" %>
+  </div>
+
+ 
+  <h5><%= f.submit "Post", :class => "btn btn-primary" %></h5>
+
+<% end %>
+
+<br>
+
+
+
+
+
+<div id="comments">
+  <%= render :partial => @song.comments %>
+</div>
+
+<br />
+

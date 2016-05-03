@@ -1,0 +1,40 @@
+    /* Profile Page styles
+-------------------------------------------------- */
+
+.profilegospel-hero .profilegospel-hero-embed {
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 100%;
+  z-index: 1
+}
+
+.profilegospel-hero .profilegospel-hero-overlay {
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  z-index: 2;
+  background-color: #F5F7FA;
+  opacity: .6;
+  filter: alpha(opacity=60)
+}
+
+.profilegospel-hero .profilegospel-hero-body {
+  position: relative;
+  z-index: 3
+}
+
+.profilegospel-hero .profilegospel-hero-bar {
+  position: relative;
+  padding: 15px;
+  z-index: 3;
+  background-color: #fff
+}
+
+
+.profilegospel-hero .profilegospel-hero-bar .float-bar {
+  margin-top: auto;
+  text-align: center
+}

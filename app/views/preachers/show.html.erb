@@ -1,0 +1,20 @@
+<h1>Preachers#show</h1>
+<p>Find me in app/views/preachers/show.html.erb</p>
+
+
+                <% if preacher_signed_in? %>
+                <%= link_to edit_preacher_path(current_preacher) do %><span class="btn btn-sm mr-2x btn-default"> <i class="fa fa-pencil fa-2x" style="color:#337ab7"></i> <% end %></span>
+
+                <% else %> <% end %>
+
+
+                <br />
+
+                <% if @preacher.profilephoto? %>
+        <%=link_to (image_tag @preacher.profilephoto.url(:small), :class => "kit-avatar kit-avatar-128 no-padding border-white pull-left"), @preacher %>
+        <% else %> 
+        <%= image_tag("fallback/unknown-profile.jpg", :class => "kit-avatar kit-avatar-96 border-white centered") %>
+
+
+       <% end %> 
+
