@@ -15,29 +15,27 @@
             <% else %> 
             <%=link_to (image_tag("fallback/unknown-profile.jpg", :class => "kit-avatar kit-avatar-32 no-border rounded-img thumb35 centered")), preacher_path(current_preacher.id)%></a></li>
 
-       <% end %> 
+       <% end %>  </div>
+       <div class="col-sm-3">
+       <span class="small">Hey &nbsp; <span class=
+       "blue"><%= current_preacher.firstname %></span>,&nbsp; select an icon to preachout</span>
       </div>
-      <div class="col-sm-11">
+      <div class="col-sm-8 centered">
         <%= form_for(@newPreach) do |f| %>
         
               <div class="field" style="margin-left: 10px;">
 
-              <div class="col-sm-10">
-                <%= f.text_area :content, autofocus: true, placeholder: "What's inspirational?...", class: "form-control" %>
-                </div>
 
-                <div class="col-sm-2">
-                <%= f.label :add_photo, :class => "form-control" %>
-              <%= f.file_field :preachcover, :autofocus => true, :placeholder => 'Add image', :class => "form-control" %>              
-                </div>
 
-                <span type="button" class="btn btn-submit" style="float: right; margin-top: 3px;"><%= f.submit "PreachOut", class: "btn btn-primary" %></span>
+              
 
                 <ul class="nav nav-pills">
-                                <li class="btn btn-success" data-toggle="modal" data-target="#myModal"><i class="fa fa-file-video-o fa-2x"></i> </li>
-                                <li class="btn btn-success" data-toggle="modal" data-target="#audio"><i class="fa fa-music fa-2x"></i> </li>
-                                <li><a href="#"><i class="fa fa-camera"></i></a></li>
-                                <li><a href="#"><i class="fa fa-smile-o"></i></a></li>
+                               <li class="btn bg-grd-violet preachicon1" title="Text" data-toggle="modal" data-target="#myModal"><i class="fa fa-commenting-o  fa-2x"></i> </li>
+
+                                <li class="btn bg-grd-red preachicon1" title="Video" data-toggle="modal" data-target="#myModal"><i class="fa fa-file-video-o fa-2x"></i> </li>
+                                <li class="btn bg-grd-teal preachicon1" title="Music" data-toggle="modal" data-target="#audio"><i class="fa fa-music fa-2x"></i> </li>
+                                <li class="btn bg-grd-yellow preachicon1" title="Sermon"data-toggle="modal" data-target="#audio"><i class="fa fa-plus-square fa-2x"></i> </li>
+                                
               </ul><!-- /.nav nav-pills -->
 
              
