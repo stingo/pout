@@ -1,0 +1,34 @@
+<%= form_for(@preach) do |f| %>
+  <% if @preach.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@preach.errors.count, "error") %> prohibited this preach from being saved:</h2>
+
+      <ul>
+      <% @preach.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :title %><br>
+    <%= f.text_field :title %>
+  </div>
+  <div class="field">
+    <%= f.label :content %><br>
+    <%= f.text_area :content %>
+  </div>
+<div class="field">
+  <%= f.label :add_photo, :class => "form-control" %>
+              <%= f.file_field :preachcover, :autofocus => true, :placeholder => 'Add image', :class => "form-control" %> 
+              </div>
+
+ 
+
+  
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+
+<% end %>

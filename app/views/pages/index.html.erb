@@ -305,49 +305,37 @@
 
 
 
-        <div class="embed-extend-item">
-
-         <%# image_tag("dummy/uifaces11.jpg", class: "kit-avatar kit-avatar-96 border-white pull-left") %>
-         <%#link_to (image_tag song.user.profilephoto.url(:small), :class => "kit-avatar kit-avatar-96 border-white pull-left"), @user %>
-
-
-          <!--Profilephoto-->
-          <% if song.preacher.profilephoto? %>
-        <%= link_to (image_tag(song.preacher.profilephoto.url(:small), :class => "kit-avatar kit-avatar-96 border-white pull-left pullup-small thumb60")), preacher_path(song.preacher_id) %>
+       <div class="embed-extend-item">
+                  <a href="#" class="kit-avatar kit-avatar-96 border-white pull-left">
+                    <img src="images/dummy/uifaces11.jpg" alt="avatar">
+                  </a>
+                  <h3 class="subhead" style="color:#337ab7"><%= link_to (song.title.split(" ").map(&:capitalize).join(" ")),
 
 
-         
+                   song_path(song) %> <small><div class="pull-left"><i class="fa fa-tags"> TAGGED:</i>&nbsp<%#raw tag_links(song.all_tags) %><div></small></h3>
+                </div><!-- /.kit-cover-headline -->
 
-        <% else %> 
-        <%= link_to (image_tag("fallback/unknown-profile.jpg", :class => "kit-avatar kit-avatar-96 border-white pull-left pullup-small thumb60")), preacher_path(song.preacher_id) %>
+                <div class="panel-body">
+                  <div class="row">
 
+                  <div class="col-xs-3 bordered-right">
 
-       <% end %>
-                   <li song="<%= song.sound.url if song.sound %>" cover="<%= song.soundcover.url if song.soundcover %> "   artist="<%= song.artist %>" title="<%= truncate(song.title, length: 14) %>">
-
-
-                  Title
-        
-         </div><!-- /.kit-cover-headline -->
-
-          <div class="panel-body">
-          <div class="row">
-
-                  <div class="col-sm-3 bordered-right">
+                    
                       <p class="text-center"><a href:"#">
-                      <i class="fa fa-clock-o" style="color:#337ab7"></i>
-                      </a><br><small>Created at date</small></p>
-                  </div><!-- /.cols -->
-
-
-                    <div class="col-sm-3 bordered-right">
-                       <h5 class="text-center"> <a href:"#"> link to show<i class="fa fa-eye" style="color:#337ab7"></i>end</a>
-                       <br><strong>impre</strong></h5>
+                        
+                        <i class="fa fa-clock-o" style="color:#337ab7"></i>
+                      </a><br><small><%= song.created_at.strftime('%d %B %Y') %></small></p>
                     </div><!-- /.cols -->
 
-                    <div class="col-sm-3 bordered-right">
-                      <h5 class="text-center"> <a href:"#"> link to show<i class="fa fa-comment" style="color:#337ab7"></i>end</a>
-                       <br><strong>comments</strong></h5>
+
+                    <div class="col-xs-3 bordered-right">
+                       <h5 class="text-center"> <a href:"#"> <%= link_to song do %><i class="fa fa-eye" style="color:#337ab7"></i><% end %></a>
+                       <br><strong><%= song.impressionist_count(:filter=>:session_hash) %></strong></h5>
+                    </div><!-- /.cols -->
+
+                    <div class="col-xs-3 bordered-right">
+                      <h5 class="text-center"> <a href:"#"> <%= link_to song do %><i class="fa fa-comment" style="color:#337ab7"></i><% end %></a>
+                    <br><strong><%= song.comments.count %></strong></h5>
                     </div><!-- /.cols -->
 
                     <!--div class="col-xs-3">

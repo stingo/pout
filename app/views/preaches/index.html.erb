@@ -1,0 +1,177 @@
+<div class="container">
+
+
+
+<div class ="centered">
+
+
+
+<% if notice.present? %>
+
+ <span class="alert alert-success fade in">
+  <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+                  <%= notice %>.
+  </span>
+
+  <% end %>
+    
+
+    <div class="centered fieldfix">
+        <%= render '/components/preach_form' %><br><br>
+        </div>
+
+
+
+       <!--MIDDLE STARTS-->
+
+
+
+<br />
+<br />
+<br />
+
+
+     <!-- ============================================
+          HEADER
+          =============================================== -->
+          
+
+     
+     <div class="clearfix"></div>
+
+<!--preaches starts-->
+
+<div class="fieldfix centered">
+   
+  <% @preaches.each_slice(6) do |preach| %> 
+          <div class="rowp">
+          <% @preaches.each do |preach| %>
+          <div class="item preachedge">
+          <div class="panel preachedge">
+
+
+
+          <div class="preach-img">
+              <% if preach.preachcover? %>
+        <%=link_to (image_tag preach.preachcover.url(:thumb), :class => "img-responsive centered box-hover preachedge-img"), preach %>
+       
+
+
+          <% end %> 
+
+
+              </div>
+
+
+          
+
+<div class="preach-content">
+
+              <%= preach.content %>
+
+              </div>
+
+              
+
+
+
+
+
+        <div class="embed-extend-item">
+
+         <%# image_tag("dummy/uifaces11.jpg", class: "kit-avatar kit-avatar-96 border-white pull-left") %>
+         <%#link_to (image_tag song.user.profilephoto.url(:small), :class => "kit-avatar kit-avatar-96 border-white pull-left"), @user %>
+
+
+          <!--Profilephoto-->
+          <% if preach.preacher.profilephoto? %>
+        <%= link_to (image_tag(preach.preacher.profilephoto.url(:large), :class => "kit-avatar kit-avatar-96 border-white pull-left thumb35")), preacher_path(preach.preacher_id) %>
+
+
+         
+
+        <% else %> 
+        <%= link_to (image_tag("fallback/unknown-profile.jpg", :class => "kit-avatar kit-avatar-96 border-white pull-left thumb35")), preacher_path(preach.preacher_id) %>
+
+
+       <% end %> 
+
+       <!--end of Profilephoto-->
+                  
+
+
+
+
+              
+
+
+
+
+
+
+ 
+        
+
+
+
+
+                  <%= preach.title if preach.title %>
+        
+         </div><!-- /.kit-cover-headline -->
+
+          <div class="panel-body">
+          <div class="row">
+
+                  <div class="col-sm-3 bordered-right">
+                      <p class="text-center"><a href:"#">
+                      <i class="fa fa-clock-o" style="color:#337ab7"></i>
+                      </a><br><small>Created at date</small></p>
+                  </div><!-- /.cols -->
+
+
+                    <div class="col-sm-3 bordered-right">
+                       <h5 class="text-center"> <a href:"#"> link to show<i class="fa fa-eye" style="color:#337ab7"></i>end</a>
+                       <br><strong>impre</strong></h5>
+                    </div><!-- /.cols -->
+
+                    <div class="col-sm-3 bordered-right">
+                      <h5 class="text-center"> <a href:"#"> link to show<i class="fa fa-comment" style="color:#337ab7"></i>end</a>
+                       <br><strong>comments</strong></h5>
+                    </div><!-- /.cols -->
+
+                    <div class="col-xs-3">
+                    <h5 class="text-center">
+                      <p id#"song_<%# song.id %>_likes"><%# render partial: "likes", locals: {song: song} %></p>
+                      <%= link_to "Edit", edit_preach_path(preach) %>
+                      </h5>
+                    </div>
+                  
+
+        </div><!-- /.row -->
+                  
+        </div><!-- /.panel-body-->
+
+        </div>
+
+           
+        </div><!-- panel -->
+        <% end %>
+          </div>
+          <% end %>
+
+
+
+</div>
+
+<!--preaches ends-->   
+
+</div>
+</div>
+
+
+
+
+
+
+
+

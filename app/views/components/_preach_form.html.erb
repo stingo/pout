@@ -30,7 +30,7 @@
               
 
                 <ul class="nav nav-pills">
-                               <li class="btn bg-grd-violet preachicon1" title="Text" data-toggle="modal" data-target="#myModal"><i class="fa fa-commenting-o  fa-2x"></i> </li>
+                               <li class="btn bg-grd-violet preachicon1" title="Text" data-toggle="modal" data-target="#preach"><i class="fa fa-commenting-o  fa-2x"></i> </li>
 
                                 <li class="btn bg-grd-red preachicon1" title="Video" data-toggle="modal" data-target="#myModal"><i class="fa fa-file-video-o fa-2x"></i> </li>
                                 <li class="btn bg-grd-teal preachicon1" title="Music" data-toggle="modal" data-target="#audio"><i class="fa fa-music fa-2x"></i> </li>
@@ -52,7 +52,7 @@
 
 <!--Video Modal-->
 
-<div class="modal fade zindez999" id="myModal" tabindex="-1" role="dialog" aria-labelledby="modalBasicLabel" aria-hidden="true">
+<div class="modal fade zindez999" id="preach" tabindex="-1" role="dialog" aria-labelledby="modalBasicLabel" aria-hidden="true">
             <div class="modal-dialog zindez999">
               <div class="modal-content">
                 <div class="modal-header">
@@ -63,10 +63,20 @@
 
                   <p>
 
-                <%= form_for(@newVideo) do |f| %>
+                <%= form_for(@newPreach) do |f| %>
+
+                <%= f.text_field :title, autofocus: true, :placeholder => 'Preach title', class: "form-control" %>
         
               
-                <%= f.text_field :videourl, autofocus: true, :placeholder => 'For example, https://www.youtube.com/watch?v=ye2aPreach9c', class: "form-control" %>
+                <%= f.text_area :content, autofocus: true, placeholder: "What's inspirational?...", class: "form-control" %>
+
+                <br />
+
+                <div class="field">
+                <%= f.label :add_image, class: "small" %><br>
+                <%= f.file_field :preachcover %>
+              </div>
+
                 <span type="button" class="btn btn-submit" style="float: right; margin-top: 3px;"><%= f.submit "PreachOut", class: "btn btn-primary" %></span>
             
           

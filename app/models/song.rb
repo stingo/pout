@@ -6,6 +6,7 @@ class Song < ActiveRecord::Base
   #carrierWave uploader
     mount_uploader :soundcover, SoundcoverUploader
     mount_uploader :sound, SoundUploader
+   
 
   validates :preacher_id, presence: true
 
