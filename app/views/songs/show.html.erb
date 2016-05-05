@@ -24,24 +24,19 @@ div#mp3_player > canvas{width:720px; height:385px; position: relative; backgroun
 
 <div class="container">
 
-<div class="navfix centered">
+<!--div class="navfix centered">
 
-<%= render '/layouts/nav3' %> 
-</div>
+<%# render '/layouts/nav3' %> 
+</div-->
 
 
- <div class="row pullup">
-
-   <br />
-<br />
-<br />
-<br />
+ <div class="centered ">
 
 
 
 
 
-  <% if notice.present? %>
+<% if notice.present? %>
 
  <span class="alert alert-success fade in">
   <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
@@ -49,6 +44,16 @@ div#mp3_player > canvas{width:720px; height:385px; position: relative; backgroun
   </span>
 
   <% end %>
+    
+
+    <div class="centered fieldfix">
+        <%= render '/components/preach_form' %><br><br>
+        </div>
+
+<div class="pullsidenav"></div>
+        <p></p>
+        <p></p>
+        <p></p>
 
   
     <div class="col-sm-8"><!--left col starts-->

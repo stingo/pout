@@ -18,6 +18,9 @@ class SongsController < ApplicationController
   # GET /audios/1.json
   def show
   	impressionist(@song)
+    @newPreach = Preach.new
+    @newVideo = Video.new
+    @newSong = Song.new
 
   	
     @song = Song.friendly.find(params[:id])
