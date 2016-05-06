@@ -254,13 +254,151 @@
               
               <div class="panel">
                 <ul class="nav nav-tabs nav-justified" id="demo1-tabs">
-                  <li class="active"><a href="#botabs1" data-toggle="tab">Music & Sermons</a></li>
-                  <li><a href="#botabs2" data-toggle="tab">Preaches</a></li>
-                  <li><a href="#botabs3" data-toggle="tab">Videos</a></li>
+                  <li class="active"><a href="#preaches" data-toggle="tab">Preaches</a></li>
+                  <li><a href="#songs" data-toggle="tab">Music & Sermons</a></li>
+                  <li><a href="#videos" data-toggle="tab">Videos</a></li>
                 </ul>
                 <div class="panel-body">
                   <div class="tab-content">
-<div class="tab-pane fade in active" id="botabs1">
+
+
+
+
+
+
+                    
+    <div class="tab-pane fade in active" id="preaches">
+
+    <p>
+
+
+ <% @preaches.each_slice(6) do |preach| %> 
+          <div class="rowp">
+          <% @preaches.each do |preach| %>
+          <div class="item preachedge">
+          <div class="panel preachedge">
+
+
+
+          <div class="preach-img">
+              <% if preach.preachcover? %>
+        <%=link_to (image_tag preach.preachcover.url(:thumb), :class => "img-responsive centered box-hover preachedge-img"), preach %>
+       
+
+
+          <% end %> 
+
+
+              </div>
+
+
+          
+
+<div class="preach-content">
+
+              <%= preach.content %>
+
+              </div>
+
+              
+
+
+
+
+
+        <div class="embed-extend-item">
+
+         <%# image_tag("dummy/uifaces11.jpg", class: "kit-avatar kit-avatar-96 border-white pull-left") %>
+         <%#link_to (image_tag song.user.profilephoto.url(:small), :class => "kit-avatar kit-avatar-96 border-white pull-left"), @user %>
+
+
+          <!--Profilephoto-->
+          <% if preach.preacher.profilephoto? %>
+        <%= link_to (image_tag(preach.preacher.profilephoto.url(:large), :class => "kit-avatar kit-avatar-96 border-white pull-left thumb35")), preacher_path(preach.preacher_id) %>
+
+
+         
+
+        <% else %> 
+        <%= link_to (image_tag("fallback/unknown-profile.jpg", :class => "kit-avatar kit-avatar-96 border-white pull-left thumb35")), preacher_path(preach.preacher_id) %>
+
+
+       <% end %> 
+
+       <!--end of Profilephoto-->
+                  
+
+
+
+
+              
+
+
+
+
+
+
+ 
+        
+
+
+
+
+                  <%= preach.title if preach.title %>
+        
+         </div><!-- /.kit-cover-headline -->
+
+          <div class="panel-body">
+          <div class="row">
+
+                  <div class="col-sm-3 bordered-right">
+                      <p class="text-center"><a href:"#">
+                      <i class="fa fa-clock-o" style="color:#337ab7"></i>
+                      </a><br><small>Created at date</small></p>
+                  </div><!-- /.cols -->
+
+
+                    <div class="col-sm-3 bordered-right">
+                       <h5 class="text-center"> <a href:"#"> link to show<i class="fa fa-eye" style="color:#337ab7"></i>end</a>
+                       <br><strong>impre</strong></h5>
+                    </div><!-- /.cols -->
+
+                    <div class="col-sm-3 bordered-right">
+                      <h5 class="text-center"> <a href:"#"> link to show<i class="fa fa-comment" style="color:#337ab7"></i>end</a>
+                       <br><strong>comments</strong></h5>
+                    </div><!-- /.cols -->
+
+                    <div class="col-xs-3">
+                    <h5 class="text-center">
+                      <p id#"song_<%# song.id %>_likes"><%# render partial: "likes", locals: {song: song} %></p>
+                      <%= link_to "Edit", edit_preach_path(preach) %>
+                      </h5>
+                      </div><!-- /.row -->
+                  
+        </div><!-- /.panel-body-->
+
+        </div>
+
+           
+        </div><!-- panel -->
+        </div>
+        <% end %>
+          </div>
+          <% end %>
+        
+       
+</p>
+
+
+    <h3 class= "centered fontsize"><a href="/preaches"> See all ...</a></h3>
+                    </div>
+
+
+
+
+
+
+<div class="tab-pane fade in active" id="songs">
 <p>
 <ul id="playlist2">
                       
@@ -330,7 +468,7 @@
 
                     <div class="col-xs-3 bordered-right">
                        <h5 class="text-center"> <a href:"#"> <%= link_to song do %><i class="fa fa-eye" style="color:#337ab7"></i><% end %></a>
-                       <br><strong><%= song.impressionist_count(:filter=>:session_hash) %></strong></h5>
+                       <br><strong><%= song.impressionist_count %></strong></h5>
                     </div><!-- /.cols -->
 
                     <div class="col-xs-3 bordered-right">
@@ -368,80 +506,11 @@
 
 
 
-                    
-    <div class="tab-pane fade" id="botabs2">
+                     
+
+
     <p>
-
-
-<!--preaches starts-->
-
-<div class="rowp">
-    <div class="item">
-      <div class="well"> 
-        1 blah blah blah
-      </div>
-    </div>
-  <div class="item">
-        <div class="well"> 
-        2 blah blah blah blah blah blah blah blah blah blah blah blahblah blah blah blah blah blah
-        </div>
-    </div>
-    <div class="item">
-        <div class="well"> 
-        3 blah blah blah blah blah blah blah blah h
-        </div>
-    </div>
-    <div class="item">
-        <div class="well">
-        blah blah blah blah 
-        </div>
-    </div>
-    <div class="item">
-        <div class="well"> 
-          blah blah blah. The container inside the item must be position:relative
-          blah blah blah. The container inside the item must be position:relative
-          blah blah blah. The container inside the item must be position:relative
-          blah blah blah. The container inside the item must be position:relative
-        </div>
-    </div>
-  <div class="item">
-        <div class="well"> 
-        blah blah blah blah blah blah blah blah blah blah blah blahblah blah blah blah blah blah
-        </div>
-    </div>
-    <div class="item">
-        <div class="well">
-        blah blah blah blah blah blah blah blah h
-        </div>
-    </div>
-    <div class="item">
-        <div class="well"> 
-        blah blah blah blah
-        </div>
-    </div>
-    <div class="item">
-        <div class="well"> 
-        blah blah blah blah blah blah blah blah blah blah blah blah
-        </div>
-    </div>
-    <div class="item">
-        <div class="well"> 
-          blah blah blah. The container inside the item must be position:relative
-          blah blah blah. The container inside the item must be position:relative
-        </div>
-    </div>
-</div>
-
-<!--preaches ends-->
-
-
-
-                      </p>
-    <h3 class= "centered fontsize"><a href="/preaches"> See all ...</a></h3>
-                    </div>
-
-                     <div class="tab-pane fade" id="botabs3">
-                      <p>
+<div class="tab-pane fade" id="videos"><p>
                           
 
 
@@ -830,6 +899,7 @@
     <script>document.location = "/home"</script>
 
 <% end %>
+
 
 
 

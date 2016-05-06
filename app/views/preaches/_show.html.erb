@@ -1,3 +1,6 @@
+
+
+
   <button type="button" class="btn btn-default mb-1x" data-toggle="modal" data-target="#customModal1">Show modal</button>
 
 
@@ -16,16 +19,18 @@
                         <span class="icon-picture text-muted">
 
 
-
-                          <div class="preach-img">
-              <% if @preach.preachcover? %>
-             <%=link_to (image_tag @preach.preachcover.url(:thumb), :class => "img-responsive centered box-hover preachedge-img"), preach %>
+                          
+              <% if preach.preachcover? %>
+             <%=link_to (image_tag preach.preachcover.url(:thumb), :class => "img-responsive centered box-hover preachedge-img"), preach %>
        
           <% end %> 
          
 
 
-              </div>
+           
+
+
+
 
 
 

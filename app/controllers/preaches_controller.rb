@@ -1,5 +1,6 @@
 class PreachesController < ApplicationController
-    impressionist :actions=>[:show,:index]
+
+    impressionist :actions=>[:index,:show]
 
 
 def index 
@@ -7,6 +8,10 @@ def index
         @newVideo = Video.new
         @newPreach = Preach.new
         @newSong = Song.new
+        
+
+
+
     end
 
 

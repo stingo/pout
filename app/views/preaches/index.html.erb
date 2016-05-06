@@ -31,6 +31,9 @@
 <br />
 
 
+
+
+
      <!-- ============================================
           HEADER
           =============================================== -->
@@ -144,6 +147,22 @@
                       <p id#"song_<%# song.id %>_likes"><%# render partial: "likes", locals: {song: song} %></p>
                       <%= link_to "Edit", edit_preach_path(preach) %>
                       </h5>
+
+                      <%# render :partial => 'show', :locals => { :preach => preach } %>
+                      <%= preach.impressionist_count(:filter=>:session_hash) %>
+
+                      <!--span class="has-tooltip" data-toggle="tooltip" title="<%= "Created on #{preach.created_at.strftime("%m/%e/%Y at %w:%M %p")}, Last modified on #{preach.updated_at.strftime("%m/%e/%Y at %w:%M %p")}" %>"-->
+    <%= preach.title if preach.title %>
+  </span>
+
+
+
+
+
+
+
+                    
+
                     </div>
                   
 
@@ -163,10 +182,67 @@
 
 </div>
 
+
+
+
+
+
+   
+
+
 <!--preaches ends-->   
 
 </div>
 </div>
+
+
+
+
+
+          <a href="http://twitter.github.io/bootstrap/" class="btn bootpopup" title="This is title" data-target="popupModal2" data-toggle="popupModal2">Open modal</a>
+
+<div id="popupModal2" class="modal hide fade" tabindex="-1" role="dialog">
+  <div class="modal-header">
+    <button type="button" class="close" data-dismiss="modal">×</button>
+      <h3>Title</h3>
+  </div>
+  <div class="modal-body">
+      <iframe src="" style="zoom:0.60" frameborder="0" height="250" width="99.6%"></iframe>
+  </div>
+  <div class="modal-footer">
+    <button class="btn" data-dismiss="modal">OK</button>
+  </div>
+</div>
+
+
+<script>$('.bootpopup').click(function(){
+    var frametarget = $(this).attr('href');
+  var targetmodal = $(this).attr('target');
+  if (targetmodal == undefined) {
+    targetmodal = '#popupModal';
+  } else { 
+    targetmodal = '#'+targetmodal;
+  }
+  if ($(this).attr('title') != undefined) {
+    $(targetmodal+ ' .modal-header h3').html($(this).attr('title'));
+    $(targetmodal+' .modal-header').show();
+  } else {
+     $(targetmodal+' .modal-header h3').html('');
+    $(targetmodal+' .modal-header').hide();
+  }  
+    $(targetmodal).on('show', function () {
+        $('iframe').attr("src", frametarget );   
+  });
+    $(targetmodal).modal({show:true});
+  return false;
+    
+});</script>
+
+
+
+
+
+
 
 
 
